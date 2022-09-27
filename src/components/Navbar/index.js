@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {
     AppBar,
     Box,
@@ -10,6 +10,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NavMenu from '../NavMenu';
 
 export default function Navbar() {
+  const [ collapsed, setCollapsed ] = useState(true);
+
+  function menuToggle() {
+    setCollapsed(!collapsed);
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color="default" position="static">
@@ -29,12 +35,13 @@ export default function Navbar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={menuToggle}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
-      <NavMenu />
+      <NavMenu collapsed={collapsed} menuToggle={menuToggle} />
     </Box>
   );
 }

@@ -1,10 +1,12 @@
 import React from "react";
 import {
   createBrowserRouter,
-  RouterProvider,
-  Route,
+  RouterProvider
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ErrorPage from './pages/ErrorPage';
+import Installation from './pages/Installation';
+import Composition from './pages/Composition';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -21,6 +23,15 @@ export default function BasicExample() {
     {
       path: "/",
       element: <Navbar />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/installation",
+      element: <Installation />,
+    },
+    {
+      path: "/composition",
+      element: <Composition />,
     },
   ]);
 
