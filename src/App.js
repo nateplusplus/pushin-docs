@@ -3,26 +3,22 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import ErrorPage from './pages/ErrorPage';
 import Installation from './pages/Installation';
 import Composition from './pages/Composition';
+import About from "./pages/About";
+import Target from "./pages/Target";
+import Api from "./pages/Api";
+import SimpleExample from './pages/SimpleExample';
+import ResponsiveExample from './pages/ResponsiveExample';
+import CatExample from './pages/CatExample';
 
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
-//
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
-
-export default function BasicExample() {
+export default function App() {
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Navbar />,
+      element: <About />,
       errorElement: <ErrorPage />,
     },
     {
@@ -32,6 +28,26 @@ export default function BasicExample() {
     {
       path: "/composition",
       element: <Composition />,
+    },
+    {
+      path: "/target",
+      element: <Target />,
+    },
+    {
+      path: "/api",
+      element: <Api />,
+    },
+    {
+      path: "/examples/simple",
+      element: <SimpleExample />,
+    },
+    {
+      path: "/examples/responsive",
+      element: <ResponsiveExample />,
+    },
+    {
+      path: "/examples/cat",
+      element: <CatExample />,
     },
   ]);
 
