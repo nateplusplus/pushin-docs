@@ -1,10 +1,9 @@
-import Navbar from "../components/Navbar";
+import PageLayout from "../components/PageLayout";
 
 export default function Api() {
   return (
-    <div id="page-api">
-      <Navbar />
+    <PageLayout id="page-api">
       <h1>API</h1>
-    </div>
+    </PageLayout>
   );
 }

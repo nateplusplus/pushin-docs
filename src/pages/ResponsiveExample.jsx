@@ -1,10 +1,9 @@
-import Navbar from "../components/Navbar";
+import PageLayout from "../components/PageLayout";
 
 export default function ResponsiveExample() {
   return (
-    <div id="page-responsive-example">
-      <Navbar />
+    <PageLayout id="page-responsive-example">
       <h1>Responsive</h1>
-    </div>
+    </PageLayout>
   );
 }

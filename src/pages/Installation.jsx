@@ -1,10 +1,9 @@
-import Navbar from "../components/Navbar";
+import PageLayout from "../components/PageLayout";
 
 export default function Installation() {
   return (
-    <div id="page-installation">
-      <Navbar />
+    <PageLayout id="page-installation">
       <h1>Installation</h1>
-    </div>
+    </PageLayout>
   );
 }

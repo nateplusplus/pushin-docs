@@ -1,10 +1,9 @@
-import Navbar from "../components/Navbar";
+import PageLayout from "../components/PageLayout";
 
 export default function Target() {
   return (
-    <div id="page-target">
-      <Navbar />
+    <PageLayout id="page-target">
       <h1>Target</h1>
-    </div>
+    </PageLayout>
   );
 }

@@ -1,10 +1,9 @@
-import Navbar from "../components/Navbar";
+import PageLayout from "../components/PageLayout";
 
 export default function Composition() {
   return (
-    <div id="page-composition">
-      <Navbar />
+    <PageLayout id="page-composition">
       <h1>Composition</h1>
-    </div>
+    </PageLayout>
   );
 }

@@ -1,10 +1,9 @@
-import Navbar from "../components/Navbar";
+import PageLayout from "../components/PageLayout";
 
 export default function SimpleExample() {
   return (
-    <div id="page-simple-example">
-      <Navbar />
+    <PageLayout id="page-simple-example">
       <h1>Simple</h1>
-    </div>
+    </PageLayout>
   );
 }

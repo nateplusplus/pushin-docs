@@ -1,10 +1,9 @@
-import Navbar from "../components/Navbar";
+import PageLayout from "../components/PageLayout";
 
 export default function CatExample() {
   return (
-    <div id="page-cat-example">
-      <Navbar />
+    <PageLayout id="page-cat-example">
       <h1>Cat</h1>
-    </div>
+    </PageLayout>
   );
 }
