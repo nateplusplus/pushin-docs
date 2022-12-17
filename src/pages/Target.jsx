@@ -1,8 +1,24 @@
+import { useEffect } from "react";
+import { Box } from '@mui/material';
+
 import PageLayout from "../components/PageLayout";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
+import { PushIn } from "pushin";
+import 'pushin/dist/pushin.css';
+
 export default function Target() {
+
+  useEffect(() => {
+    const container = document.querySelector('.pushin');
+    const pushIn = new PushIn(container, {
+      target: '#demo'
+    });
+
+    pushIn.start();
+  });
+
   return (
     <PageLayout id="page-target">
       <h1>Constrain PushIn inside elements using the Target option</h1>
@@ -24,6 +40,29 @@ pushIn.start();`
       </SyntaxHighlighter>
       <h2>Working demo</h2>
       <p>Below is an example of PushIn.js being applied to a scrollable div element.</p>
+      <Box
+        id="demo"
+        sx={{
+          margin: '60px auto',
+          maxWidth: '750px',
+          height: '350px',
+          maxHeight: '100vh',
+          backgroundColor: '#fafafa',
+          outline: '3px dotted #dedede',
+        }}
+      >
+        <div className="pushin">
+          <Box className="pushin-layer" sx={{ padding: '0 3rem' }}>
+            This example demonstrates using PushIn.js within a scrollable div.
+          </Box>
+          <Box className="pushin-layer" sx={{ padding: '0 3rem' }}>
+            Optionally attach PushIn to any element.
+          </Box>
+          <Box className="pushin-layer" sx={{ padding: '0 3rem' }}>
+            All event listeners will be added to the target element.
+          </Box>
+        </div>
+      </Box>
     </PageLayout>
   );
 }

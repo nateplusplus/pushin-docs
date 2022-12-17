@@ -7,6 +7,26 @@ body {
   width: 100%;
 }
 
+p.lead {
+  font-size: 1.25rem;
+  -webkit-font-smoothing: antialiased;
+  max-width: 680px;
+}
+
+h2 {
+  margin-top: 4rem;
+}
+
+p code,
+li code,
+h2 code,
+h3 code {
+  background: #eee;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  color: #d90429;
+}
+
 .no-pointer {
   pointer-events: none !important;
 }

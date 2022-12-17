@@ -6,7 +6,7 @@ export default function Api() {
   return (
     <PageLayout id="page-api">
       <h1>PushIn API Reference</h1>
-      <p>For more information, questions, bug reporting or feature requests, checkout the <a href="https://github.com/nateplusplus/pushin" target="_blank" rel="noopener noreferrer nofollow">project on GitHub</a>.</p>
+      <p className="lead">For more information, questions, bug reporting or feature requests, checkout the <a href="https://github.com/nateplusplus/pushin" target="_blank" rel="noopener noreferrer nofollow">project on GitHub</a>.</p>
       <h2>PushIn Full HTML Layout</h2>
       <SyntaxHighlighter language="xml" style={docco}>
         {

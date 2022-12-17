@@ -6,7 +6,7 @@ export default function Installation() {
   return (
     <PageLayout id="page-installation">
       <h1>Installation</h1>
-      <p>Follow these steps to start using PushIn.js in your project.</p>
+      <p className="lead">Follow these steps to start using PushIn.js in your project.</p>
       <p>For more information, questions, bug reporting or feature requests, checkout the <a href="https://github.com/nateplusplus/pushin" target="_blank" rel="noopener noreferrer nofollow">project on GitHub</a>.</p>
       <h2>Install pushin with NPM or a CDN</h2>
       <p>If you're using npm, you can install the package by running:</p>

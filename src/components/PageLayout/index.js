@@ -12,10 +12,12 @@ export default function PageLayout({id, children}) {
   return (
     <Box id={id}>
       <Navbar />
-      <Container sx={{
-      marginTop: '4rem',
-      marginBottom: '6rem'
-    }}>
+      <Container
+        sx={{
+          marginTop: '4rem',
+          marginBottom: '6rem'
+        }}
+      >
         {children}
       </Container>
     </Box>

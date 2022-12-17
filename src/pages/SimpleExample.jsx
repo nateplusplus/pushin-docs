@@ -8,11 +8,7 @@ export default function SimpleExample() {
 
   useEffect(() => {
       const container = document.querySelector('.pushin');
-      const pushIn = new PushIn(container, {
-        target: '#demo',
-        scrollTarget: 'window',
-      });
-
+      const pushIn = new PushIn(container);
       pushIn.start();
   });
 

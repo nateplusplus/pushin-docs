@@ -1,29 +1,38 @@
 import { useEffect } from "react";
 import PageLayout from "../components/PageLayout";
-import mountainMask from '../images/mountain/mountain-0-mask.svg';
 import { Box } from '@mui/material';
+
 import { PushIn } from "pushin";
 import 'pushin/dist/pushin.css';
+
+import mountainMask from '../images/mountain/mountain-0-mask.svg';
+import mountainLayer1 from '../images/mountain/mountain-02-hill-1.svg';
+import mountainLayer2 from '../images/mountain/mountain-01-trees.svg';
+import mountainLayer3 from '../images/mountain/mountain-03-hill-2.svg';
+import mountainLayer4 from '../images/mountain/mountain-04-landscape.svg';
+import mountainLayer5 from '../images/mountain/mountain-05-logo.svg';
+import mountainLayer6 from '../images/mountain/mountain-06-sky.svg';
+
 
 export default function About() {
 
   useEffect(() => {
-      const container = document.querySelector('.pushin');
-      const pushIn = new PushIn(container, {
-        target: '#demo',
-        scrollTarget: 'window',
-      });
+    const container = document.querySelector('.pushin');
+    const pushIn = new PushIn(container, {
+      target: '#demo',
+      scrollTarget: 'window',
+    });
 
-      pushIn.start();
+    pushIn.start();
   });
 
   return (
     <PageLayout id="page-about">
       <h1>About PushIn.js</h1>
-      <p>PushIn.js is a lightweight parallax effect, built with JavaScript, that simulates an interactive dolly-in or push-in animation on a webpage.</p>
+      <p className="lead">PushIn.js is a lightweight parallax effect, built with JavaScript, that simulates an interactive dolly-in or push-in animation on a webpage.</p>
       <h2>Working Demo</h2>
       <p>Scroll over the image below to try out this effect.</p>
-      <Box id="#demo">
+      <div id="demo">
         <div className="pushin">
           <div className="pushin-scene">
             <div className="pushin-composition">
@@ -42,10 +51,51 @@ export default function About() {
                   <img src={mountainMask} alt="" />
                 </div>
               </div>
+              <div className="pushin-layer" data-pushin-transition-end="2000" data-pushin-from="350"  data-pushin-to="2000,3500" data-pushin-speed="7">
+                <div className="mountain-1 no-pointer">
+                  <img src={mountainLayer1} alt="" />
+                </div>
+              </div>
+              <div className="pushin-layer" data-pushin-transition-end="2000" data-pushin-from="350"  data-pushin-to="3000,4000" data-pushin-speed="8">
+                <div className="mountain-2 no-pointer">
+                  <img src={mountainLayer2} alt="" />
+                </div>
+              </div>
+              <div className="pushin-layer" data-pushin-transition-start='-1' data-pushin-transition-end="1500" data-pushin-from="350" data-pushin-to="3000,4000" data-pushin-speed="4">
+                <div className="mountain-3 no-pointer">
+                  <img src={mountainLayer3} alt="" />
+                </div>
+              </div>
+              <div className="pushin-layer" data-pushin-transition-start='-1' data-pushin-transition-end="1500" data-pushin-from="350" data-pushin-to="3000,4000" data-pushin-speed="1">
+                <div className="mountain-4 no-pointer">
+                  <img src={mountainLayer4} alt="" />
+                </div>
+              </div>
+              <div className="pushin-layer" data-pushin-transitions='false' data-pushin-from="350" data-pushin-to="4000,6000" data-pushin-speed='0.9'>
+                <div className="mountain-5 no-pointer">
+                  <Box className="mountain-5-text no-pointer"
+                    sx={{
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      position: 'absolute',
+                      
+                    }}
+                  >
+                    <p>PushIn.js</p>
+                  </Box>
+                  <img src={mountainLayer5} alt="" />
+                </div>
+              </div>
+              <div className="pushin-layer" data-pushin-transition-start='-1' data-pushin-transition-end="1000" data-pushin-from="350" data-pushin-to="3000,5000" data-pushin-speed='0.5'>
+                <div className="mountain-6 no-pointer">
+                  <img src={mountainLayer6} alt="" />
+                </div>
+              </div>
+              <div className="pushin-layer"/>
             </div>
           </div>
         </div>
-      </Box>
+      </div>
       <h2>Compatibility</h2>
       <p>PushIn.js supports all browsers that are ES5-compliant (IE8 and below are not supported).</p>
       <h2>How does it work?</h2>

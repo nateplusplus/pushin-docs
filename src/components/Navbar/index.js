@@ -20,32 +20,43 @@ export default function Navbar() {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar color="default" position="static">
-        <Toolbar>
-          <Link to="/" style={{ marginRight: 'auto' }}> 
+    <>
+      <Box
+        sx={{
+          flexGrow: 1,
+          zIndex: 1000,
+          position: 'fixed',
+          width: '100%',
+          top: 0
+        }}
+      >
+        <AppBar color="default" position="static">
+          <Toolbar>
+            <Link to="/" style={{ marginRight: 'auto' }}> 
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+              >
+                <img src={Logo} alt="" height="45px"/>
+              </IconButton>
+            </Link>
             <IconButton
               size="large"
               edge="start"
               color="inherit"
               aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={menuToggle}
             >
-              <img src={Logo} alt="" height="45px"/>
+              <MenuIcon />
             </IconButton>
-          </Link>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={menuToggle}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <NavMenu collapsed={collapsed} menuToggle={menuToggle} />
-    </Box>
+          </Toolbar>
+        </AppBar>
+        <NavMenu collapsed={collapsed} menuToggle={menuToggle} />
+      </Box>
+      <Box className="navbar-spacer" sx={{ height: '70px' }}/>
+    </>
   );
 }
