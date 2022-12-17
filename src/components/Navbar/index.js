@@ -8,6 +8,8 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from "react-router-dom";
 
+import Logo from '../../images/pushin-logo-banner.svg';
+
 import NavMenu from '../NavMenu';
 
 export default function Navbar() {
@@ -28,7 +30,7 @@ export default function Navbar() {
               color="inherit"
               aria-label="menu"
             >
-              <img src="/images/pushin-logo-banner.svg" alt="" height="45px"/>
+              <img src={Logo} alt="" height="45px"/>
             </IconButton>
           </Link>
           <IconButton

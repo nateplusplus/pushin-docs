@@ -1,12 +1,51 @@
+import { useEffect } from "react";
 import PageLayout from "../components/PageLayout";
+import mountainMask from '../images/mountain/mountain-0-mask.svg';
+import { Box } from '@mui/material';
+import { PushIn } from "pushin";
+import 'pushin/dist/pushin.css';
 
 export default function About() {
+
+  useEffect(() => {
+      const container = document.querySelector('.pushin');
+      const pushIn = new PushIn(container, {
+        target: '#demo',
+        scrollTarget: 'window',
+      });
+
+      pushIn.start();
+  });
+
   return (
     <PageLayout id="page-about">
       <h1>About PushIn.js</h1>
       <p>PushIn.js is a lightweight parallax effect, built with JavaScript, that simulates an interactive dolly-in or push-in animation on a webpage.</p>
       <h2>Working Demo</h2>
       <p>Scroll over the image below to try out this effect.</p>
+      <Box id="#demo">
+        <div className="pushin">
+          <div className="pushin-scene">
+            <div className="pushin-composition">
+              <div className="pushin-layer" data-pushin-from="350" data-pushin-to="2000,2500" data-pushin-speed="20">
+                <div className="mountain-0 no-pointer">
+                  <Box className="mountain-0-text no-pointer"
+                    sx={{
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      position: 'absolute',
+                      
+                    }}
+                  >
+                    <p>Scroll to begin</p>
+                  </Box>
+                  <img src={mountainMask} alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Box>
       <h2>Compatibility</h2>
       <p>PushIn.js supports all browsers that are ES5-compliant (IE8 and below are not supported).</p>
       <h2>How does it work?</h2>

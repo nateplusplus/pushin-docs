@@ -2,3 +2,48 @@ body {
   margin: 0;
   font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 }
+
+.pushin-layer img {
+  width: 100%;
+}
+
+.no-pointer {
+  pointer-events: none !important;
+}
+
+.mountain-0 {
+  transform: scale(2);
+}
+
+.mountain-0-text {
+  top: 17%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(0.6);
+}
+
+.mountain-2 {
+  position: absolute;
+  left: 15%;
+  bottom: 20%;
+}
+
+.mountain-4 {
+  position: absolute;
+  top: 15%;
+}
+
+.mountain-5 {
+  transform: scale(0.8);
+  margin-bottom: 23px;
+}
+
+.mountain-5-text {
+  top: 105%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 68.7px;
+  font-weight: 700;
+}
