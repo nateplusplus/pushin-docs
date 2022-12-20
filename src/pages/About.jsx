@@ -115,6 +115,8 @@ export default function About() {
       <p>You can also check out the <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/nateplusplus/pushin">GitHub README</a> for more information about this plugin and how to contribute!</p>
       <h2>What do I do if I'm experiencing an issue?</h2>
       <p>Please submit a <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/nateplusplus/pushin/issues/new?assignees=&labels=&template=bug_report.md&title=">bug report</a> so I can put on my detective hat and look into it further!</p>
+      <h2>How can I contribute to this documentation?</h2>
+      <p>Please submit a <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/nateplusplus/pushin-docs/issues/new">ticket</a> if you find any issues, or go ahead and open a <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/nateplusplus/pushin-docs/pulls">pull request</a> if you'd like to contribute!</p>
     </PageLayout>
   );
 }
