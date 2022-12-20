@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Divider,
   Drawer,
@@ -26,20 +26,22 @@ export default function NavMenu({collapsed, menuToggle}) {
     }
   }
 
+  const LinkBehavior = React.forwardRef((props, ref) => (
+    <RouterLink ref={ref} {...props} />
+  ));
+
   function listItem( text, route, icon ) {
     return (
-      <Link to={route}>
-        <ListItem>
-            <ListItemButton onClick={() => handleRoute()}>
-              {icon &&
-                <ListItemIcon>
-                  {icon}
-                </ListItemIcon>
-              }
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-      </Link>
+      <ListItem>
+        <ListItemButton to={route} component={LinkBehavior} onClick={() => handleRoute()}>
+          {icon &&
+            <ListItemIcon>
+              {icon}
+            </ListItemIcon>
+          }
+          <ListItemText primary={text} />
+        </ListItemButton>
+      </ListItem>
     );
   };
 
@@ -59,9 +61,9 @@ export default function NavMenu({collapsed, menuToggle}) {
         <ListSubheader>Getting started</ListSubheader>
         {listItem('About', '/', <HomeIcon />)}
         {listItem('Installation', '/installation', <InfoIcon />)}
+        {listItem('API reference', '/api', <CodeIcon />)}
         {listItem('Composition', '/composition', <WidgetsIcon />)}
         {listItem('Target', '/target', <ModeStandbyIcon />)}
-        {listItem('API reference', '/api', <CodeIcon />)}
         <Divider />
         <ListSubheader>Examples</ListSubheader>
         {listItem('Simple (zero config)', '/examples/simple')}

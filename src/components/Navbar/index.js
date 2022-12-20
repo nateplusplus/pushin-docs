@@ -6,7 +6,7 @@ import {
     Button
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 import Logo from '../../images/pushin-logo.svg';
 
@@ -18,6 +18,10 @@ export default function Navbar() {
   function menuToggle() {
     setCollapsed(!collapsed);
   }
+
+  const LinkBehavior = React.forwardRef((props, ref) => (
+    <RouterLink ref={ref} {...props} />
+  ));
 
   return (
     <>
@@ -32,18 +36,23 @@ export default function Navbar() {
       >
         <AppBar color="default" position="static">
           <Toolbar>
-            <Link to="/" style={{ marginRight: 'auto', textDecoration: 'none', color: '#2d2d2d' }}> 
-              <Button
+            <Button
+                component={LinkBehavior}
+                to="/"
                 size="large"
                 edge="start"
                 color="inherit"
                 variation="text"
                 startIcon={<img src={Logo} alt="" height="45px"/>}
                 aria-label="menu"
-              >
-                PushIn.js
-              </Button>
-            </Link>
+                sx={{
+                  marginRight: 'auto',
+                  textDecoration: 'none',
+                  color: '#2d2d2d'
+                }}
+            >
+              PushIn.js
+            </Button>
             <Button
               size="large"
               edge="end"

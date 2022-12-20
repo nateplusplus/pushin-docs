@@ -5,7 +5,7 @@ import {
   Container
 } from '@mui/material';
 
-import HomeIcon from '@mui/icons-material/Home';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 import Navbar from "../Navbar";
 
@@ -26,6 +26,11 @@ export default function PageLayout({id, children}) {
       <Button
         variant="outlined"
         size="small"
+        component='a'
+        href="https://github.com/nateplusplus/pushin"
+        target="_blank"
+        rel="noreferrer noopener nofollow"
+        startIcon={<GitHubIcon />}
         sx={{
           position: 'fixed',
           bottom: '1rem',
