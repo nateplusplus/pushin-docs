@@ -1,15 +1,17 @@
 import PageLayout from "../components/PageLayout";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 import { PushIn } from "pushin";
 import 'pushin/dist/pushin.css';
 
 export default function SimpleExample() {
 
-  useEffect(() => {
+  useLayoutEffect(() => {
       const container = document.querySelector('.pushin');
       const pushIn = new PushIn(container);
       pushIn.start();
+
+      return () => pushIn.destroy();
   });
 
   return (

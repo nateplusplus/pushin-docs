@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import PageLayout from "../components/PageLayout";
 import { Box } from '@mui/material';
 
@@ -16,7 +16,7 @@ import mountainLayer6 from '../images/mountain/mountain-06-sky.svg';
 
 export default function About() {
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = document.querySelector('.pushin');
     const pushIn = new PushIn(container, {
       target: '#demo',
@@ -24,6 +24,8 @@ export default function About() {
     });
 
     pushIn.start();
+
+    return () => pushIn.destroy();
   });
 
   return (

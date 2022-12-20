@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useLayoutEffect} from 'react';
 import { Box, Card, CardContent } from '@mui/material';
 
 import { PushIn } from "pushin";
@@ -7,11 +7,13 @@ import 'pushin/dist/pushin.css';
 import PageLayout from "../components/PageLayout";
 
 export default function ResponsiveExample() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = document.querySelector('.pushin');
     const pushIn = new PushIn(container, { debug: true });
 
     pushIn.start();
+
+    return () => pushIn.destroy();
   });
 
   return (

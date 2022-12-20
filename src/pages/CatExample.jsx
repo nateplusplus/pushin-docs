@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 import { PushIn } from "pushin";
 import 'pushin/dist/pushin.css';
@@ -15,10 +15,12 @@ import wall from '../images/cat/livingroom-4.svg';
 
 export default function CatExample() {
 
-  useEffect(() => {
+  useLayoutEffect(() => {
       const container = document.querySelector('.pushin');
       const pushIn = new PushIn(container);
       pushIn.start();
+
+      return () => pushIn.destroy();
   });
 
   return (

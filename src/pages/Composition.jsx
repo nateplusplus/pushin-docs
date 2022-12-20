@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { Box } from '@mui/material';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -12,13 +12,15 @@ import cactus from '../images/monster/pushin-monster-cactus.svg';
 import monster from '../images/monster/pushin-monster.svg';
 
 export default function Composition() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = document.querySelector('.pushin');
     const pushIn = new PushIn(container, {
       target: '#demo'
     });
 
     pushIn.start();
+
+    return () => pushIn.destroy();
   });
 
   return (

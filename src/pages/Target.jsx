@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { Box } from '@mui/material';
 
 import PageLayout from "../components/PageLayout";
@@ -10,13 +10,15 @@ import 'pushin/dist/pushin.css';
 
 export default function Target() {
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = document.querySelector('.pushin');
     const pushIn = new PushIn(container, {
       target: '#demo'
     });
 
     pushIn.start();
+
+    return () => pushIn.destroy();
   });
 
   return (
