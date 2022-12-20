@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+import ErrorPage from './pages/ErrorPage';
+import Installation from './pages/Installation';
+import Composition from './pages/Composition';
+import About from "./pages/About";
+import Target from "./pages/Target";
+import Api from "./pages/Api";
+import SimpleExample from './pages/SimpleExample';
+import ResponsiveExample from './pages/ResponsiveExample';
+import CatExample from './pages/CatExample';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+export default function App() {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <About />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/installation",
+      element: <Installation />,
+    },
+    {
+      path: "/composition",
+      element: <Composition />,
+    },
+    {
+      path: "/target",
+      element: <Target />,
+    },
+    {
+      path: "/api",
+      element: <Api />,
+    },
+    {
+      path: "/examples/simple",
+      element: <SimpleExample />,
+    },
+    {
+      path: "/examples/responsive",
+      element: <ResponsiveExample />,
+    },
+    {
+      path: "/examples/cat",
+      element: <CatExample />,
+    },
+  ]);
+
+return (
+    <RouterProvider router={router} />
   );
 }
-
-export default App;

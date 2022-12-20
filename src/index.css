@@ -1,13 +1,77 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.pushin-layer img {
+  width: 100%;
+}
+
+p.lead {
+  font-size: 1.25rem;
+  -webkit-font-smoothing: antialiased;
+  max-width: 680px;
+}
+
+h2 {
+  margin-top: 4rem;
+}
+
+h3 {
+  margin-top: 3rem;
+}
+
+p code,
+li code,
+h2 code,
+h3 code {
+  background: #eee;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  color: #d90429;
+}
+
+td code {
+  color: #d90429;
+}
+
+.no-pointer {
+  pointer-events: none !important;
+}
+
+.mountain-0 {
+  transform: scale(2);
+}
+
+.mountain-0-text {
+  top: 17%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(0.6);
+}
+
+.mountain-2 {
+  position: absolute;
+  left: 15%;
+  bottom: 20%;
+}
+
+.mountain-4 {
+  position: absolute;
+  top: 15%;
+}
+
+.mountain-5 {
+  transform: scale(0.8);
+  margin-bottom: 23px;
+}
+
+.mountain-5-text {
+  top: 95%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 68.7px;
+  font-weight: 700;
 }
