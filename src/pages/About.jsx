@@ -43,20 +43,20 @@ export default function About() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       position: 'absolute',
-                      
+                      top: ['17%', null, '25%']
                     }}
                   >
-                    <p>Scroll to begin</p>
+                    <p style={{ textAlign: 'center' }}>Scroll to begin</p>
                   </Box>
                   <img src={mountainMask} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-transition-end="2000" data-pushin-from="350"  data-pushin-to="2000,3500" data-pushin-speed="7">
+              <div className="pushin-layer" data-pushin-from="350"  data-pushin-to="2000,3500" data-pushin-speed="7">
                 <div className="mountain-1 no-pointer">
                   <img src={mountainLayer1} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-transition-end="2000" data-pushin-from="350"  data-pushin-to="3000,4000" data-pushin-speed="8">
+              <div className="pushin-layer" data-pushin-from="350"  data-pushin-to="3000,5000" data-pushin-speed="8">
                 <div className="mountain-2 no-pointer">
                   <img src={mountainLayer2} alt="" />
                 </div>
@@ -81,7 +81,7 @@ export default function About() {
                       
                     }}
                   >
-                    <p>PushIn.js</p>
+                    <p style={{ textAlign: 'center', margin: 0 }}>PushIn.js</p>
                   </Box>
                   <img src={mountainLayer5} alt="" />
                 </div>

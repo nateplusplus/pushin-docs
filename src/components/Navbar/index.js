@@ -3,12 +3,12 @@ import {
     AppBar,
     Box,
     Toolbar,
-    IconButton
+    Button
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from "react-router-dom";
 
-import Logo from '../../images/pushin-logo-banner.svg';
+import Logo from '../../images/pushin-logo.svg';
 
 import NavMenu from '../NavMenu';
 
@@ -32,26 +32,29 @@ export default function Navbar() {
       >
         <AppBar color="default" position="static">
           <Toolbar>
-            <Link to="/" style={{ marginRight: 'auto' }}> 
-              <IconButton
+            <Link to="/" style={{ marginRight: 'auto', textDecoration: 'none', color: '#2d2d2d' }}> 
+              <Button
                 size="large"
                 edge="start"
                 color="inherit"
+                variation="text"
+                startIcon={<img src={Logo} alt="" height="45px"/>}
                 aria-label="menu"
               >
-                <img src={Logo} alt="" height="45px"/>
-              </IconButton>
+                PushIn.js
+              </Button>
             </Link>
-            <IconButton
+            <Button
               size="large"
-              edge="start"
+              edge="end"
               color="inherit"
               aria-label="menu"
+              endIcon={<MenuIcon />}
               sx={{ mr: 2 }}
               onClick={menuToggle}
             >
-              <MenuIcon />
-            </IconButton>
+              Menu
+            </Button>
           </Toolbar>
         </AppBar>
         <NavMenu collapsed={collapsed} menuToggle={menuToggle} />

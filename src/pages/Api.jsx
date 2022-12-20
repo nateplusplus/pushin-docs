@@ -2,7 +2,88 @@ import PageLayout from "../components/PageLayout";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
+} from '@mui/material';
+
 export default function Api() {
+
+  function createTable(rows) {
+    return (
+      <TableContainer>
+        <Table sx={{ minWidth: 650 }}>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>HTML Attribute</TableCell>
+              <TableCell>Type</TableCell>
+              <TableCell>Default</TableCell>
+              <TableCell>Description</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  <strong>{row.name}</strong>
+                </TableCell>
+                <TableCell>{row.attr}</TableCell>
+                <TableCell>{row.type}</TableCell>
+                <TableCell>{row.val}</TableCell>
+                <TableCell>{row.description}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    );
+  }
+
+  function createData(
+    name,
+    attr,
+    type,
+    val,
+    description,
+  ) {
+    return { name, attr, type, val, description };
+  }
+
+  const pushinRows = [
+    createData('debug', 'none', <code>boolean</code>, <code>false</code>, 'Enables a tool to display the current scroll position which can help with animation timing.'),
+    createData('selector', 'none', <code>string</code>, '.pushin', <><p>If you are using the global <code>pushInStart()</code> function to create multiple instances of PushIn on one page, and you need to supply specific configurations to each instance, use this option to target a specific element (or multiple elements) as the PushIn container(s).</p><p>NOTE: If using the <code>new PushIn()</code> class constructor, you will pass an element in as the first parameter, so this option is unnecessary and will be ignored.</p></>),
+    createData('target', <code>data-pushin-target</code>, <code>string</code>, <code>undefined</code>, 'JavaScript selector used to attach PushIn to an element on the page.'),
+    createData('scrollTarget', <code>data-pushin-scroll-target</code>, <code>string</code>, <code>target | window</code>, 'JavaScript selector used to bind scroll events. If "window" is provided, scroll events will be bound to the Window object, regardless of which element is the target.'),
+  ];
+
+  const sceneRows = [
+    createData('breakpoints', <code>data-pushin-breakpoints</code>, <code>string</code>, <code>0,768,1440,1920</code>, 'Provide a comma-separated list of numbers to configure appropriate responsive design breakpoints.'),
+    createData('inpoints', <code>data-pushin-from</code>, <code>string</code>, <code>0</code>, 'Comma-separated list of numbers representing the screen position at which the scene should begin animating.'),
+    createData('layerDepth', 'none', <code>number</code>, <code>1000</code>, 'When an inpoint or outpoint is not provided for a layer, pushIn will use this number to calculate how long the layer should animate when scrolling.'),
+    createData('ratio', <code>data-pushin-ratio</code>, <code>string</code>, <code>1,2</code>, 'Set an aspect ratio for your scene to prevent element positions from drifting when screens resize.'),
+  ];
+
+  const compositionRows = [
+    createData('ratio', <code>data-pushin-ratio</code>, <code>string</code>, <code>1,2</code>, 'Set an aspect ratio for your scene to prevent element positions from drifting when screens resize.'),
+  ];
+
+  const layerRows = [
+    createData('inpoints', <code>data-pushin-from</code>, <code>string</code>, <code>undefined</code>, 'Comma-separated list of numbers representing the screen position at which the layer should begin animating.'),
+    createData('outpoints', <code>data-pushin-to</code>, <code>string</code>, <code>undefined</code>, 'Comma-separated list of numbers representing the screen position at which the layer should stop animating.'),
+    createData('speed', <code>data-pushin-speed</code>, <code>number</code>, <code>8</code>, 'A number representing how fast or slow the layer should grow or shrink during scroll events.'),
+    createData('transitions', <code>data-pushin-transitions</code>, <code>boolean</code>, <code>true</code>, <><p>Whether to fade in or out when the layer is not active. Setting this to <code>false</code> will turn off both start and end transitions.</p><p><strong>Note:</strong> By default, the first layer does not fade in, and the last layer does not fade out.</p></>),
+    createData('transitionStart', <code>data-pushin-transition-start</code>, <code>number</code>, <code>200</code>, <><p>Duration of the fade-in effect after the layer becomes active (in pixels).</p><p><strong>Note:</strong> Use <code>-1</code> to turn off the start transition only (does not affect end transition).</p></>),
+    createData('transitionEnd', <code>data-pushin-transition-end</code>, <code>number</code>, <code>200</code>, <><p>Duration of the fade-out effect before the layer becomes inactive (in pixels).</p><p><strong>Note:</strong> Use <code>-1</code> to turn off the end transition only (does not affect start transition).</p></>),
+  ];
+
   return (
     <PageLayout id="page-api">
       <h1>PushIn API Reference</h1>
@@ -80,9 +161,13 @@ new PushIn(config);`
       <h2>Modules</h2>
       <p>Each component of the PushIn plugin has its own set of configurations, separated into modules below.</p>
       <h3>pushin (top level) | <code>.pushin</code></h3>
+      { createTable( pushinRows ) }
       <h3>scene | <code>.pushin-scene</code></h3>
+      { createTable( sceneRows ) }
       <h3>composition | <code>.pushin-composition</code></h3>
+      { createTable( compositionRows ) }
       <h3>layers | <code>.pushin-layer</code></h3>
+      { createTable( layerRows ) }
     </PageLayout>
   );
 }

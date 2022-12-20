@@ -17,6 +17,10 @@ h2 {
   margin-top: 4rem;
 }
 
+h3 {
+  margin-top: 3rem;
+}
+
 p code,
 li code,
 h2 code,
@@ -24,6 +28,10 @@ h3 code {
   background: #eee;
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
+  color: #d90429;
+}
+
+td code {
   color: #d90429;
 }
 
@@ -60,7 +68,7 @@ h3 code {
 }
 
 .mountain-5-text {
-  top: 105%;
+  top: 95%;
   left: 0;
   right: 0;
   bottom: 0;
