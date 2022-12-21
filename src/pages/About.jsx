@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import PageLayout from "../components/PageLayout";
 import { Box } from '@mui/material';
 
@@ -15,10 +15,10 @@ import mountainLayer6 from '../images/mountain/mountain-06-sky.svg';
 
 
 export default function About() {
+  const pushInContainer = useRef();
 
   useLayoutEffect(() => {
-    const container = document.querySelector('.pushin');
-    const pushIn = new PushIn(container, {
+    const pushIn = new PushIn(pushInContainer.current, {
       target: '#demo',
       scrollTarget: 'window',
     });
@@ -35,7 +35,7 @@ export default function About() {
       <h2>Working Demo</h2>
       <p>Scroll over the image below to try out this effect.</p>
       <div id="demo">
-        <div className="pushin">
+        <div ref={pushInContainer} className="pushin">
           <div className="pushin-scene">
             <div className="pushin-composition">
               <div className="pushin-layer" data-pushin-from="350" data-pushin-to="2000,2500" data-pushin-speed="20">

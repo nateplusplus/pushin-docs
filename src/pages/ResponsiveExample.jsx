@@ -1,4 +1,4 @@
-import React, {useLayoutEffect} from 'react';
+import React, {useLayoutEffect, useRef} from 'react';
 import { Box, Card, CardContent } from '@mui/material';
 
 import { PushIn } from "pushin";
@@ -7,9 +7,10 @@ import 'pushin/dist/pushin.css';
 import PageLayout from "../components/PageLayout";
 
 export default function ResponsiveExample() {
+  const pushInContainer = useRef();
+
   useLayoutEffect(() => {
-    const container = document.querySelector('.pushin');
-    const pushIn = new PushIn(container, { debug: true });
+    const pushIn = new PushIn(pushInContainer.current, { debug: true });
 
     pushIn.start();
 
@@ -26,6 +27,7 @@ export default function ResponsiveExample() {
         <p>When there is a lot of wrapping content like paragraphs of text, the page content could become longer on smaller screens like phones or tablets. This could interfere with the timing of pushIn.js animations, since it relies directly on the window scroll position. This is where specifying different settings per breakpoint can come in handy.</p>
       </Box>
       <Box
+        ref={pushInContainer}
         className="pushin"
         sx={{
           backgroundColor: '#AAAAAA',
