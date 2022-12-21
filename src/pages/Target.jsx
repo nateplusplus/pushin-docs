@@ -12,7 +12,6 @@ export default function Target() {
   const pushInContainer = useRef();
 
   useLayoutEffect(() => {
-    const container = document.querySelector('.pushin');
     const pushIn = new PushIn(pushInContainer.current, {
       target: '#demo'
     });
