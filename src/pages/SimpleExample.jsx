@@ -1,14 +1,14 @@
 import PageLayout from "../components/PageLayout";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import { PushIn } from "pushin";
 import 'pushin/dist/pushin.css';
 
 export default function SimpleExample() {
+  const pushInContainer = useRef();
 
   useLayoutEffect(() => {
-      const container = document.querySelector('.pushin');
-      const pushIn = new PushIn(container);
+      const pushIn = new PushIn(pushInContainer.current);
       pushIn.start();
 
       return () => pushIn.destroy();
@@ -16,7 +16,7 @@ export default function SimpleExample() {
 
   return (
     <PageLayout id="page-simple-example">
-      <div className="pushin">
+      <div ref={pushInContainer} className="pushin">
         <div className="pushin-layer">
           This example demonstrates the simplest, zero-configuration setup for pushin.js.
         </div>
