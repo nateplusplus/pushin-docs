@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import { PushIn } from "pushin";
 import 'pushin/dist/pushin.css';
@@ -14,10 +14,10 @@ import sofa from '../images/cat/livingroom-3.svg';
 import wall from '../images/cat/livingroom-4.svg';
 
 export default function CatExample() {
+  const pushInContainer = useRef();
 
   useLayoutEffect(() => {
-      const container = document.querySelector('.pushin');
-      const pushIn = new PushIn(container);
+      const pushIn = new PushIn(pushInContainer.current);
       pushIn.start();
 
       return () => pushIn.destroy();
@@ -25,7 +25,7 @@ export default function CatExample() {
 
   return (
     <PageLayout id="page-cat-example">
-      <div className="pushin">
+      <div ref={pushInContainer} className="pushin">
         <div className="pushin-scene">
           <div className="pushin-composition">
             <div className="pushin-layer layer-1" data-pushin-transition-start="-1" data-pushin-to="1000" data-pushin-speed="80">

@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Box } from '@mui/material';
 
 import PageLayout from "../components/PageLayout";
@@ -9,10 +9,11 @@ import { PushIn } from "pushin";
 import 'pushin/dist/pushin.css';
 
 export default function Target() {
+  const pushInContainer = useRef();
 
   useLayoutEffect(() => {
     const container = document.querySelector('.pushin');
-    const pushIn = new PushIn(container, {
+    const pushIn = new PushIn(pushInContainer.current, {
       target: '#demo'
     });
 
@@ -53,7 +54,7 @@ pushIn.start();`
           outline: '3px dotted #dedede',
         }}
       >
-        <div className="pushin">
+        <div ref={pushInContainer} className="pushin">
           <Box className="pushin-layer" sx={{ padding: '0 3rem' }}>
             This example demonstrates using PushIn.js within a scrollable div.
           </Box>

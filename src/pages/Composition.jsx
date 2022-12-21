@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Box } from '@mui/material';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -12,9 +12,10 @@ import cactus from '../images/monster/pushin-monster-cactus.svg';
 import monster from '../images/monster/pushin-monster.svg';
 
 export default function Composition() {
+  const pushInContainer = useRef();
+
   useLayoutEffect(() => {
-    const container = document.querySelector('.pushin');
-    const pushIn = new PushIn(container, {
+    const pushIn = new PushIn(pushInContainer.current, {
       target: '#demo'
     });
 
@@ -47,7 +48,7 @@ export default function Composition() {
         }
       </SyntaxHighlighter>
       <Box id="demo" sx={{ height: '350px', border: 'dashed grey 1px' }}>
-        <div className="pushin">
+        <div ref={pushInContainer} className="pushin">
           <Box className="pushin-scene" sx={{ background: 'linear-gradient(180deg, rgba(227,240,251,1) 0%, rgba(255,254,253,1) 35%, rgba(255,254,252,1) 47%, rgba(249,245,210,1) 50%, rgba(247,240,210,1) 70%, rgba(238,223,211,1) 100%)' }}>
             <div className="pushin-composition">
               <div className="pushin-layer" data-pushin-transitions="false" data-pushin-from="0" data-pushin-to="0" data-pushin-speed="18">
