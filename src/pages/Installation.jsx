@@ -1,13 +1,53 @@
+import { useState } from 'react';
 import PageLayout from "../components/PageLayout";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {
+  Tabs,
+  Tab,
+  Alert
+} from '@mui/material';
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <div>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Installation() {
+  const [ tabValue, setTabValue ] = useState(0);
+
+  const handleTabChange = ( event, newValue ) => {
+    setTabValue( newValue );
+  }
+
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    };
+  }
+
   return (
     <PageLayout id="page-installation">
       <h1>Installation</h1>
       <p className="lead">Follow these steps to start using PushIn.js in your project.</p>
       <p>For more information, questions, bug reporting or feature requests, checkout the <a href="https://github.com/nateplusplus/pushin" target="_blank" rel="noopener noreferrer nofollow">project on GitHub</a>.</p>
+
       <h2>Install pushin with NPM or a CDN</h2>
       <p>If you're using npm, you can install the package by running:</p>
       <SyntaxHighlighter language="bash" style={docco}>
@@ -26,6 +66,7 @@ export default function Installation() {
         { `https://cdn.jsdelivr.net/npm/pushin@5/dist/pushin.min.css\nhttps://cdn.jsdelivr.net/npm/pushin@5/dist/umd/pushin.min.js` }
       </SyntaxHighlighter>
       <p><strong>Note: It is best practice to include the version in your CDN URL (this comes after the @ symbol in the URL). This will avoid sudden changes in the event that major updates are rolled out.</strong></p>
+
       <h2>Insert required HTML structure</h2>
       <p>At the most basic level, there are a few things you need to set up on your page in order for this to work properly.</p>
       <p>Use the following example snippet to create a "scene" for the pushin effect.</p>
@@ -38,21 +79,58 @@ export default function Installation() {
 </div>`
         }
       </SyntaxHighlighter>
-      <h2>Initializing the effect (Vanilla JavaScript)</h2>
-      <p>Once you have your HTML set up, you can initialize the effect by calling the <code>start()</code> method.</p>
-      <SyntaxHighlighter language="javascript" style={docco}>
-        {
+
+      <h2>Initializing the effect</h2>
+      <p>Depending on your project, there are a few ways you can initialize this effect. Choose the one that is best for you below.</p>
+
+      <Tabs value={tabValue} onChange={handleTabChange}>
+        <Tab label='Minimal' { ...a11yProps(0) } />
+        <Tab label='JavaScript' { ...a11yProps(1) } />
+        <Tab label='React' { ...a11yProps(2) } />
+      </Tabs>
+
+      <TabPanel value={tabValue} index={0}>
+        <div>
+          <h3>Minimal setup with helper function</h3>
+          <p>If a minimal setup is preferred, you can use the helper function <code>pushInStart()</code> which is exported to the global scope. This does not work well for all projects, particularly React based projects, but it can be particularly useful for those using the CDN.</p>
+          <SyntaxHighlighter language="html" style={docco}>
+            {
+`<script language="text/javascript">
+  pushInStart();
+</script>`
+            }
+          </SyntaxHighlighter>
+          <Alert severity='warning'>IMPORTANT: Only call this function once on the page, even if adding more than one PushIn effect. This function will initialize <strong><em>all PushIn effects</em></strong> on the current page.</Alert>
+        </div>
+      </TabPanel>
+      <TabPanel value={tabValue} index={1}>
+        <div>
+          <h3>Initializing the effect with JavaScript</h3>
+          <p>Once you have your HTML set up, you can initialize the effect by creating a new instance of <code>PushIn()</code>. You can optionally pass settings into PushIn when instatiating (see full API documentation for details). Once instantiated, to begin the effect, call the <code>start()</code> method.</p>
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {
 `import { PushIn } from 'pushin';
 import 'pushin/dist/pushin.css';
 
+const options = {
+  // Optionally pass settings to PushIn here (See API documentation).
+};
+
 const container = document.querySelector('.pushin');
-new PushIn(container).start();`
-        }
-      </SyntaxHighlighter>
-      <h2>Initializing the effect (React.js)</h2>
-      <p>For React projects, you will need to use the `useRef` and `useLayoutEffect` hooks. You will also want to call the `destroy()` method to prevent PushIn from persisting across your SPA when not in use.</p>
-      <SyntaxHighlighter language="javascript" style={docco}>
-        {
+new PushIn(container, options).start();`
+            }
+          </SyntaxHighlighter>
+
+          <Alert severity="info">You can initialize multiple instances of PushIn on a single page without risk of collision or conflict.</Alert>
+        </div>
+      </TabPanel>
+      <TabPanel value={tabValue} index={2}>
+        <div>
+
+          <h3>Initializing the effect with React</h3>
+          <p>For React projects, you will need to use the <code>useRef</code> and <code>useLayoutEffect</code> hooks. You will also want to call the <code>destroy()</code> method to prevent PushIn from persisting across your SPA when not in use.</p>
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {
 `import { useLayoutEffect, useRef } from "react";
 import { PushIn } from 'pushin';
 import 'pushin/dist/pushin.css';
@@ -71,28 +149,19 @@ export default function MyComponent() {
   });
 
   return (
-    <div className="pushin">
+    <div ref={pushInContainer} className="pushin">
       <div className="pushin-layer">Test</div>
       { // more layers here... }
     </div>
   )
 }
 `
-        }
-      </SyntaxHighlighter>
-      <h2>Minimal setup with helper function</h2>
-      <p>Alternatively, you can use the helper function <code>pushInStart()</code> which is exported to the global scope. This does not work well for all projects, particularly React based projects, but it can be useful for some cases when a simple setup is desired.</p>
-      <SyntaxHighlighter language="html" style={docco}>
-        {
-`<div class="pushin">
-  <div class="pushin-layer">Test</div>
-  <!-- More layers here... -->
-</div>
-<script language="text/javascript">
-  pushInStart();
-</script>`
-        }
-      </SyntaxHighlighter>
+            }
+          </SyntaxHighlighter>
+          <Alert severity="info">You can initialize multiple instances of PushIn on a single page without risk of collision or conflict.</Alert>
+        </div>
+      </TabPanel>
+
     </PageLayout>
   );  
 }
