@@ -91,7 +91,7 @@ export default function Installation() {
 
       <TabPanel value={tabValue} index={0}>
         <div>
-          <p>If a minimal setup is preferred, you can use the helper function <code>pushInStart()</code> which is exported to the global scope. This does not work well for all projects, particularly React based projects, but it can be particularly useful for those using the CDN.</p>
+          <p>If you're using the CDN, you can use the helper function <code>pushInStart()</code> to start the effect. This is ideal for a minimal setup that does not require settings or configurations. However, this may not be compatible with all projects, such as those that use modular JavaScript imports or React.</p>
           <SyntaxHighlighter language="html" style={docco}>
             {
 `<script language="text/javascript">
