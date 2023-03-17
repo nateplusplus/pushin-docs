@@ -65,7 +65,7 @@ export default function Installation() {
       <SyntaxHighlighter language="text" style={docco}>
         { `https://cdn.jsdelivr.net/npm/pushin@5/dist/pushin.min.css\nhttps://cdn.jsdelivr.net/npm/pushin@5/dist/umd/pushin.min.js` }
       </SyntaxHighlighter>
-      <p><strong>Note: It is best practice to include the version in your CDN URL (this comes after the @ symbol in the URL). This will avoid sudden changes in the event that major updates are rolled out.</strong></p>
+      <Alert severity='warning'>Note: It is best practice to include the version in your CDN URL (this comes after the @ symbol in the URL). This will avoid sudden changes in the event that major updates are rolled out.</Alert>
 
       <h2>Insert required HTML structure</h2>
       <p>At the most basic level, there are a few things you need to set up on your page in order for this to work properly.</p>
@@ -91,7 +91,6 @@ export default function Installation() {
 
       <TabPanel value={tabValue} index={0}>
         <div>
-          <h3>Minimal setup with helper function</h3>
           <p>If a minimal setup is preferred, you can use the helper function <code>pushInStart()</code> which is exported to the global scope. This does not work well for all projects, particularly React based projects, but it can be particularly useful for those using the CDN.</p>
           <SyntaxHighlighter language="html" style={docco}>
             {
@@ -105,8 +104,7 @@ export default function Installation() {
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
         <div>
-          <h3>Initializing the effect with JavaScript</h3>
-          <p>Once you have your HTML set up, you can initialize the effect by creating a new instance of <code>PushIn()</code>. You can optionally pass settings into PushIn when instatiating (see full API documentation for details). Once instantiated, to begin the effect, call the <code>start()</code> method.</p>
+          <p>Once you have your HTML set up, you can initialize the effect by creating a new instance of <code>PushIn()</code>. You can optionally pass settings into PushIn when instantiating (see full <a href="/api">API documentation</a> for details). Once instantiated, to begin the effect, call the <code>start()</code> method.</p>
           <SyntaxHighlighter language="javascript" style={docco}>
             {
 `import { PushIn } from 'pushin';
@@ -126,9 +124,8 @@ new PushIn(container, options).start();`
       </TabPanel>
       <TabPanel value={tabValue} index={2}>
         <div>
-
-          <h3>Initializing the effect with React</h3>
-          <p>For React projects, you will need to use the <code>useRef</code> and <code>useLayoutEffect</code> hooks. You will also want to call the <code>destroy()</code> method to prevent PushIn from persisting across your SPA when not in use.</p>
+          <p>For React projects, you will need to use the <code>useRef</code> and <code>useLayoutEffect</code> hooks. You can optionally pass settings into PushIn when instantiating (see full <a href="/api">API documentation</a> for details).</p>
+          <p>You will also want to call the <code>destroy()</code> method to prevent PushIn from persisting across your SPA when not in use.</p>
           <SyntaxHighlighter language="javascript" style={docco}>
             {
 `import { useLayoutEffect, useRef } from "react";
