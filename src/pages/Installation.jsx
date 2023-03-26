@@ -53,17 +53,9 @@ export default function Installation() {
       <SyntaxHighlighter language="bash" style={docco}>
         npm install --save pushin
       </SyntaxHighlighter>
-      <p>Import assets into your javascript (if using Webpack).</p>
-      <SyntaxHighlighter language="javascript" style={docco}>
-        import 'pushin/dist/pushin.css';
-      </SyntaxHighlighter>
-      <p>If not using Webpack, you can import the CSS from node_modules.</p>
-      <SyntaxHighlighter language="css" style={docco}>
-        @import 'node_modules/pushin/dist/pushin.css';
-      </SyntaxHighlighter>
       <p>Alternatively, you can use a CDN:</p>
       <SyntaxHighlighter language="text" style={docco}>
-        { `https://cdn.jsdelivr.net/npm/pushin@5/dist/pushin.min.css\nhttps://cdn.jsdelivr.net/npm/pushin@5/dist/umd/pushin.min.js` }
+        { `https://cdn.jsdelivr.net/npm/pushin@5/dist/umd/pushin.min.js` }
       </SyntaxHighlighter>
       <Alert severity='warning'>Note: It is best practice to include the version in your CDN URL (this comes after the @ symbol in the URL). This will avoid sudden changes in the event that major updates are rolled out.</Alert>
 
@@ -108,7 +100,6 @@ export default function Installation() {
           <SyntaxHighlighter language="javascript" style={docco}>
             {
 `import { PushIn } from 'pushin';
-import 'pushin/dist/pushin.css';
 
 const options = {
   // Optionally pass settings to PushIn here (See API documentation).
@@ -130,7 +121,6 @@ new PushIn(container, options).start();`
             {
 `import { useLayoutEffect, useRef } from "react";
 import { PushIn } from 'pushin';
-import 'pushin/dist/pushin.css';
 
 export default function MyComponent() {
   const pushInContainer = useRef();
