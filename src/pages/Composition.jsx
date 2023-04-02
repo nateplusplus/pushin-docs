@@ -2,9 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import { Box } from '@mui/material';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
 import { PushIn } from "pushin";
-import 'pushin/dist/pushin.css';
 
 import PageLayout from "../components/PageLayout";
 

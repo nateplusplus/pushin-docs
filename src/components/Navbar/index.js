@@ -24,51 +24,48 @@ export default function Navbar() {
   ));
 
   return (
-    <>
-      <Box
-        sx={{
-          flexGrow: 1,
-          zIndex: 1000,
-          position: 'fixed',
-          width: '100%',
-          top: 0
-        }}
-      >
-        <AppBar color="default" position="static">
-          <Toolbar>
-            <Button
-                component={LinkBehavior}
-                to="/"
-                size="large"
-                edge="start"
-                color="inherit"
-                variation="text"
-                startIcon={<img src={Logo} alt="" height="45px"/>}
-                aria-label="menu"
-                sx={{
-                  marginRight: 'auto',
-                  textDecoration: 'none',
-                  color: '#2d2d2d'
-                }}
-            >
-              PushIn.js
-            </Button>
-            <Button
+    <Box
+      sx={{
+        flexGrow: 1,
+        zIndex: 1000,
+        position: 'fixed',
+        width: '100%',
+        top: 0
+      }}
+    >
+      <AppBar color="default" position="static">
+        <Toolbar>
+          <Button
+              component={LinkBehavior}
+              to="/"
               size="large"
-              edge="end"
+              edge="start"
               color="inherit"
+              variation="text"
+              startIcon={<img src={Logo} alt="" height="45px"/>}
               aria-label="menu"
-              endIcon={<MenuIcon />}
-              sx={{ mr: 2 }}
-              onClick={menuToggle}
-            >
-              Menu
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <NavMenu collapsed={collapsed} menuToggle={menuToggle} />
-      </Box>
-      <Box className="navbar-spacer" sx={{ height: '70px' }}/>
-    </>
+              sx={{
+                marginRight: 'auto',
+                textDecoration: 'none',
+                color: '#2d2d2d'
+              }}
+          >
+            PushIn.js
+          </Button>
+          <Button
+            size="large"
+            edge="end"
+            color="inherit"
+            aria-label="menu"
+            endIcon={<MenuIcon />}
+            sx={{ mr: 2 }}
+            onClick={menuToggle}
+          >
+            Menu
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <NavMenu collapsed={collapsed} menuToggle={menuToggle} />
+    </Box>
   );
 }

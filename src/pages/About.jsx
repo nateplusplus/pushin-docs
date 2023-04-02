@@ -1,9 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import PageLayout from "../components/PageLayout";
 import { Box } from '@mui/material';
-
 import { PushIn } from "pushin";
-import 'pushin/dist/pushin.css';
 
 import mountainMask from '../images/mountain/mountain-0-mask.svg';
 import mountainLayer1 from '../images/mountain/mountain-02-hill-1.svg';
