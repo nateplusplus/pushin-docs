@@ -1,5 +1,8 @@
 import { useLayoutEffect, useRef } from "react";
+
 import { PushIn } from "pushin";
+import 'pushin/dist/pushin.css';
+
 import PageLayout from "../components/PageLayout";
 import './cat.css';
 
@@ -21,7 +24,7 @@ export default function CatExample() {
   });
 
   return (
-    <PageLayout id="page-cat-example" padded={false}>
+    <PageLayout id="page-cat-example">
       <div ref={pushInContainer} className="pushin">
         <div className="pushin-scene">
           <div className="pushin-composition">

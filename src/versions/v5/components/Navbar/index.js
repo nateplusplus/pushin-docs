@@ -13,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { paths } from '../../routes';
 import Logo from '../../images/pushin-logo.svg';
-import { VERSIONS } from '../../constants';
+import { VERSIONS } from '../../../../constants';
 
 import NavMenu from '../NavMenu';
 
@@ -95,7 +95,7 @@ export default function Navbar() {
               color="inherit"
               aria-label="menu"
               endIcon={<MenuIcon />}
-              sx={{ mr: 2 }}
+              sx={{ mr: 2, fontSize: '0.8rem', ml: 1 }}
               onClick={menuToggle}
             >
               Menu
