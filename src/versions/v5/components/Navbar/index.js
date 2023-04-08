@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { paths } from '../../routes';
 import Logo from '../../images/pushin-logo.svg';
+import { VERSIONS } from '../../../../constants';
 
 import NavMenu from '../NavMenu';
 
@@ -62,7 +63,8 @@ export default function Navbar() {
                 sx={{
                   marginRight: '2.5rem',
                   textDecoration: 'none',
-                  color: '#2d2d2d'
+                  color: '#2d2d2d',
+                  fontSize: '0.8rem'
                 }}
             >
               PushIn.js
@@ -72,20 +74,19 @@ export default function Navbar() {
               sx={{
                 marginRight: 'auto',
                 textDecoration: 'none',
-                color: '#2d2d2d',
-                minWidth: '120px'
+                minWidth: '110px'
               }}
             >
-              <InputLabel id="version-label">version</InputLabel>
+              <InputLabel id="version-label" sx={{ fontSize: '0.9rem' }}>version</InputLabel>
               <Select
                 labelId="version-label"
                 id="version-select"
                 value={version}
                 onChange={versionChange}
                 label="version"
+                sx={{ color: '#444', fontSize: '0.8rem' }}
               >
-                <MenuItem value={'latest'}>latest</MenuItem>
-                <MenuItem value={'v5'}>v5</MenuItem>
+                { VERSIONS.map( version => <MenuItem value={version.value}>{version.label}</MenuItem> ) }
               </Select>
             </FormControl>
             <Button
@@ -94,7 +95,7 @@ export default function Navbar() {
               color="inherit"
               aria-label="menu"
               endIcon={<MenuIcon />}
-              sx={{ mr: 2 }}
+              sx={{ mr: 2, fontSize: '0.8rem', ml: 1 }}
               onClick={menuToggle}
             >
               Menu
