@@ -19,12 +19,15 @@ export default function About() {
     const pushIn = new PushIn(pushInContainer.current, {
       target: '#demo',
       scrollTarget: 'window',
+      mode: 'continuous',
+      autoStart: 'screen-top',
+      debug: true
     });
 
     pushIn.start();
 
     return () => pushIn.destroy();
-  });
+  },[]);
 
   return (
     <PageLayout id="page-about">
@@ -36,7 +39,7 @@ export default function About() {
         <div ref={pushInContainer} className="pushin">
           <div className="pushin-scene">
             <div className="pushin-composition">
-              <div className="pushin-layer" data-pushin-from="350" data-pushin-to="2000,2500" data-pushin-speed="20">
+              <div className="pushin-layer" data-pushin-speed="20">
                 <div className="mountain-0 no-pointer">
                   <Box className="mountain-0-text no-pointer"
                     sx={{
@@ -51,27 +54,27 @@ export default function About() {
                   <img src={mountainMask} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-from="350"  data-pushin-to="2000,3500" data-pushin-speed="7">
+              <div className="pushin-layer" data-pushin-speed="7">
                 <div className="mountain-1 no-pointer">
                   <img src={mountainLayer1} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-from="350"  data-pushin-to="3000,5000" data-pushin-speed="8">
+              <div className="pushin-layer" data-pushin-speed="8">
                 <div className="mountain-2 no-pointer">
                   <img src={mountainLayer2} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-transition-start='-1' data-pushin-transition-end="1500" data-pushin-from="350" data-pushin-to="3000,4000" data-pushin-speed="4">
+              <div className="pushin-layer" data-pushin-speed="4">
                 <div className="mountain-3 no-pointer">
                   <img src={mountainLayer3} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-transition-start='-1' data-pushin-transition-end="1500" data-pushin-from="350" data-pushin-to="3000,4000" data-pushin-speed="1">
+              <div className="pushin-layer" data-pushin-speed="1">
                 <div className="mountain-4 no-pointer">
                   <img src={mountainLayer4} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-transitions='false' data-pushin-from="350" data-pushin-to="4000,6000" data-pushin-speed='0.9'>
+              <div className="pushin-layer" data-pushin-speed='0.9'>
                 <div className="mountain-5 no-pointer">
                   <Box className="mountain-5-text no-pointer"
                     sx={{
@@ -86,12 +89,11 @@ export default function About() {
                   <img src={mountainLayer5} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-transition-start='-1' data-pushin-transition-end="1000" data-pushin-from="350" data-pushin-to="3000,5000" data-pushin-speed='0.5'>
+              <div className="pushin-layer" data-pushin-speed='0.5'>
                 <div className="mountain-6 no-pointer">
                   <img src={mountainLayer6} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer"/>
             </div>
           </div>
         </div>

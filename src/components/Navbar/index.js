@@ -86,7 +86,7 @@ export default function Navbar() {
                 label="version"
                 sx={{ color: '#444', fontSize: '0.8rem' }}
               >
-                { VERSIONS.map( version => <MenuItem value={version.value}>{version.label}</MenuItem> ) }
+                { VERSIONS.map( (version, index) => <MenuItem key={`v-${index}`} value={version.value}>{version.label}</MenuItem> ) }
               </Select>
             </FormControl>
             <Button
@@ -95,7 +95,7 @@ export default function Navbar() {
               color="inherit"
               aria-label="menu"
               endIcon={<MenuIcon />}
-              sx={{ mr: 2 }}
+              sx={{ mr: 2, fontSize: '0.8rem', ml: 1 }}
               onClick={menuToggle}
             >
               Menu

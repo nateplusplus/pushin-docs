@@ -1,6 +1,6 @@
 export const VERSIONS = [
     {
-        label: 'latest (v5)',
+        label: 'latest (v6)',
         value: 'latest'
     },
     {
