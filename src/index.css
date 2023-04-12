@@ -7,6 +7,10 @@ body {
   width: 100%;
 }
 
+#page-about .pushin {
+  height: 4000px;
+}
+
 p.lead {
   font-size: 1.25rem;
   -webkit-font-smoothing: antialiased;
