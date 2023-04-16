@@ -89,7 +89,7 @@ export default function About() {
                   <img src={mountainLayer5} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-speed='0.5'>
+              <div className="pushin-layer" data-pushin-speed='0.5' data-pushin-to="4000">
                 <div className="mountain-6 no-pointer">
                   <img src={mountainLayer6} alt="" />
                 </div>
