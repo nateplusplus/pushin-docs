@@ -66,6 +66,7 @@ export default function Api() {
     createData('target', <code>data-pushin-target</code>, <code>string</code>, <code>undefined</code>, '', 'JavaScript selector used to attach PushIn to an element on the page.'),
     createData('scrollTarget', <code>data-pushin-scroll-target</code>, <code>string</code>, <code>window</code>, '', 'JavaScript selector used to bind scroll events. If "window" is provided, scroll events will be bound to the Window object, regardless of which element is the target.'),
     createData('mode', <code>data-pushin-mode</code>, <code>string</code>, <code>sequential</code>, <code>sequential, continuous</code>, 'Specify how PushIn layers should be displayed. Use "continuous" mode to display all layers continuously throughout the animation. Use "sequential" to display layers in a sequence, one after another.'),
+    createData('autoStart', <code>data-pushin-auto-start</code>, <code>string</code>, <code>scroll</code>, <code>scroll, screen-top, screen-bottom</code>, 'Automatically begin animating the effect based on where the PushIn container is while scrolling. The "scroll" option will begin animating immediately when the user begins scrolling. The "screen-top" option will begin animating when the top of the PushIn container aligns with the top of the browser. The "screen-bottom" option will begin animating when the top of the PushIn container aligns with the bottom of the browser.'),
   ];
 
   const sceneRows = [
