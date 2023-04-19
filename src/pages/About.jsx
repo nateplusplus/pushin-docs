@@ -15,13 +15,67 @@ import mountainLayer6 from '../images/mountain/mountain-06-sky.svg';
 export default function About() {
   const pushInContainer = useRef();
 
+  const transitionSpeed = 1000;
+  const fadePoint = 2800;
+
   useLayoutEffect(() => {
     const pushIn = new PushIn(pushInContainer.current, {
       target: '#demo',
       scrollTarget: 'window',
       mode: 'continuous',
       autoStart: 'screen-top',
-      debug: true
+      layers: [
+        // Circle
+        {
+          speed: 20,
+        },
+        // Trees
+        {
+          speed: 8,
+          transitions: true,
+          outpoints: [ fadePoint ],
+          transitionStart: -1,
+          transitionEnd: transitionSpeed,
+        },
+        // Hill 1
+        {
+          speed: 7,
+          transitions: true,
+          outpoints: [ fadePoint ],
+          transitionStart: -1,
+          transitionEnd: transitionSpeed,
+        },
+        // Hill 2
+        {
+          speed: 4,
+          transitions: true,
+          outpoints: [ fadePoint ],
+          transitionStart: -1,
+          transitionEnd: transitionSpeed,
+        },
+        // Hill 3
+        {
+          speed: 1,
+          transitions: true,
+          outpoints: [ fadePoint ],
+          transitionStart: -1,
+          transitionEnd: transitionSpeed,
+        },
+        // PushIn Logo
+        {
+          speed: 0.9,
+          transitions: false,
+          outpoints: [ 4000 ],
+        },
+        // Sky
+        {
+          speed: 0.5,
+          transitions: true,
+          outpoints: [ fadePoint ],
+          transitionStart: -1,
+          transitionEnd: transitionSpeed,
+        },
+      ]
     });
 
     pushIn.start();
@@ -54,27 +108,27 @@ export default function About() {
                   <img src={mountainMask} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-speed="7">
+              <div className="pushin-layer">
                 <div className="mountain-1 no-pointer">
                   <img src={mountainLayer1} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-speed="8">
+              <div className="pushin-layer">
                 <div className="mountain-2 no-pointer">
                   <img src={mountainLayer2} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-speed="4">
+              <div className="pushin-layer">
                 <div className="mountain-3 no-pointer">
                   <img src={mountainLayer3} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-speed="1">
+              <div className="pushin-layer">
                 <div className="mountain-4 no-pointer">
                   <img src={mountainLayer4} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-speed='0.9'>
+              <div className="pushin-layer">
                 <div className="mountain-5 no-pointer">
                   <Box className="mountain-5-text no-pointer"
                     sx={{
@@ -89,7 +143,7 @@ export default function About() {
                   <img src={mountainLayer5} alt="" />
                 </div>
               </div>
-              <div className="pushin-layer" data-pushin-speed='0.5' data-pushin-to="4000">
+              <div className="pushin-layer">
                 <div className="mountain-6 no-pointer">
                   <img src={mountainLayer6} alt="" />
                 </div>
