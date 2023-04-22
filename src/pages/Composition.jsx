@@ -31,13 +31,13 @@ export default function Composition() {
       <p>The following is an example of the pushin-composition class in action:</p>
       <SyntaxHighlighter language="xml" style={docco}>
         {
-          `<div class="pushin">
+          `<div class="pushin" data-pushin-mode="continuous">
   <div class="pushin-scene">
     <div class="pushin-composition">
-      <div class="pushin-layer" data-pushin-transitions="false" data-pushin-from="0" data-pushin-to="0" data-pushin-speed="18">
+      <div class="pushin-layer" data-pushin-speed="18">
         <img src="cactus.svg" style="width: 8%; bottom:46%; left:30%;">
       </div>
-      <div class="pushin-layer" data-pushin-transitions="false" data-pushin-from="0" data-pushin-to="0">
+      <div class="pushin-layer">
         <img src="monster.svg" style="width: 10%; bottom:47%; right:40%">
       </div>
     </div>
@@ -46,13 +46,13 @@ export default function Composition() {
         }
       </SyntaxHighlighter>
       <Box id="demo" sx={{ height: '350px', border: 'dashed grey 1px' }}>
-        <div ref={pushInContainer} className="pushin">
+        <div ref={pushInContainer} className="pushin" data-pushin-mode="continuous">
           <Box className="pushin-scene" sx={{ background: 'linear-gradient(180deg, rgba(227,240,251,1) 0%, rgba(255,254,253,1) 35%, rgba(255,254,252,1) 47%, rgba(249,245,210,1) 50%, rgba(247,240,210,1) 70%, rgba(238,223,211,1) 100%)' }}>
             <div className="pushin-composition">
-              <div className="pushin-layer" data-pushin-transitions="false" data-pushin-from="0" data-pushin-to="0" data-pushin-speed="18">
+              <div className="pushin-layer" data-pushin-speed="18">
                 <img src={cactus} alt="" style={{ position: 'absolute', width: '8%', bottom: '46%', left: '30%' }} />
               </div>
-              <div className="pushin-layer" data-pushin-transitions="false" data-pushin-from="0" data-pushin-to="0">
+              <div className="pushin-layer">
                 <img src={monster} alt="" style={{ position: 'absolute', width: '10%', bottom: '47%', right: '40%' }} />
               </div>
             </div>
