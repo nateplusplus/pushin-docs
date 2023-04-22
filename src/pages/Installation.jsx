@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PageLayout from "../components/PageLayout";
+import TabPanel from '../components/Tabpanel';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {
@@ -8,26 +9,6 @@ import {
   Alert
 } from '@mui/material';
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <div>
-          {children}
-        </div>
-      )}
-    </div>
-  );
-}
-
 export default function Installation() {
   const [ tabValue, setTabValue ] = useState(0);
 
@@ -35,7 +16,7 @@ export default function Installation() {
     setTabValue( newValue );
   }
 
-  function a11yProps(index) {
+  function tabA11yProps(index) {
     return {
       id: `simple-tab-${index}`,
       'aria-controls': `simple-tabpanel-${index}`,
@@ -76,9 +57,9 @@ export default function Installation() {
       <p>Depending on your project, there are a few ways you can initialize this effect. Choose the one that is best for you below.</p>
 
       <Tabs value={tabValue} onChange={handleTabChange}>
-        <Tab label='Minimal' { ...a11yProps(0) } />
-        <Tab label='JavaScript' { ...a11yProps(1) } />
-        <Tab label='React' { ...a11yProps(2) } />
+        <Tab label='CDN (quickstart)' { ...tabA11yProps(0) } />
+        <Tab label='JavaScript' { ...tabA11yProps(1) } />
+        <Tab label='React' { ...tabA11yProps(2) } />
       </Tabs>
 
       <TabPanel value={tabValue} index={0}>
@@ -149,6 +130,14 @@ export default function MyComponent() {
         </div>
       </TabPanel>
 
+      <h2>Customizing PushIn</h2>
+      <p>There are many customizations and settings you can apply to PushIn.js. Use some of the resources below as a guide.</p>
+      <ol>
+        <li><a href="/api">Full developer API reference</a></li>
+        <li><a href="/api">Setting a target element</a></li>
+        <li><a href="/composition">Using composition</a></li>
+        <li><a href="https://github.com/nateplusplus/pushin/discussions">Open a discussion on GitHub to ask questions</a></li>
+      </ol>
     </PageLayout>
   );  
 }
