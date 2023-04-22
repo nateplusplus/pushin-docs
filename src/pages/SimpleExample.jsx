@@ -13,7 +13,7 @@ export default function SimpleExample() {
   });
 
   return (
-    <PageLayout id="page-simple-example" padded={false}>
+    <PageLayout id="page-simple-example" padded={false} spacer={false}>
       <div ref={pushInContainer} className="pushin">
         <div className="pushin-layer">
           This example demonstrates the simplest, zero-configuration setup for pushin.js.

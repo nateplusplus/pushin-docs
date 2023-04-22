@@ -17,7 +17,7 @@ import { VERSIONS } from '../../constants';
 
 import NavMenu from '../NavMenu';
 
-export default function Navbar() {
+export default function Navbar({ spacer = true }) {
   const location = useLocation();
   const versionPath = location.pathname.match(/v\d+|latest/) ?? 'latest';
 
@@ -104,7 +104,7 @@ export default function Navbar() {
         </AppBar>
         <NavMenu collapsed={collapsed} menuToggle={menuToggle} />
       </Box>
-      <Box className="navbar-spacer" sx={{ height: '70px' }}/>
+      {spacer && <Box className="navbar-spacer" sx={{ height: '70px' }}/>}
     </>
   );
 }

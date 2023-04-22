@@ -9,12 +9,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 import Navbar from "../Navbar";
 
-export default function PageLayout({id, padded = true, children}) {
+export default function PageLayout({id, padded = true, spacer = true, children}) {
   id = id ? id : 'pushinPageLayout';
 
   return (
     <Box id={id}>
-      <Navbar />
+      <Navbar spacer={spacer} />
       { padded && <Box className="navbar-spacer" sx={{ height: '70px' }}/> }
       <Container
         sx={{
