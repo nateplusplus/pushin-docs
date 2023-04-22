@@ -1,5 +1,8 @@
 import { useLayoutEffect, useRef } from "react";
+
 import { PushIn } from "pushin";
+import 'pushin/dist/pushin.css';
+
 import PageLayout from "../components/PageLayout";
 import './cat.css';
 
@@ -14,29 +17,24 @@ export default function CatExample() {
   const pushInContainer = useRef();
 
   useLayoutEffect(() => {
-      const pushIn = new PushIn(
-        pushInContainer.current,
-        {
-          mode: 'continuous',
-        }
-      );
+      const pushIn = new PushIn(pushInContainer.current);
       pushIn.start();
 
       return () => pushIn.destroy();
   });
 
   return (
-    <PageLayout id="page-cat-example" padded={false} spacer={false}>
+    <PageLayout id="page-cat-example">
       <div ref={pushInContainer} className="pushin">
         <div className="pushin-scene">
           <div className="pushin-composition">
-            <div className="pushin-layer layer-1" data-pushin-to="1000" data-pushin-speed="80">
+            <div className="pushin-layer layer-1" data-pushin-transition-start="-1" data-pushin-to="1000" data-pushin-speed="80">
               <div className="table"></div>
               <div className="plant">
                 <img src={plant} alt="" />
               </div>
             </div>
-            <div className="pushin-layer layer-2" data-pushin-speed="16">
+            <div className="pushin-layer layer-2" data-pushin-transitions="false" data-pushin-from="0" data-pushin-speed="16">
               <div className="light">
                 <img src={light} alt="" />
               </div>
@@ -47,15 +45,15 @@ export default function CatExample() {
                 <img src={tv} alt="" />
               </div>
             </div>
-            <div className="pushin-layer layer-3"data-pushin-speed="10">
+            <div className="pushin-layer layer-3" data-pushin-transitions="false" data-pushin-from="0" data-pushin-speed="10">
               <div className="sofa">
                 <img src={sofa} alt="" />
               </div>
             </div>
-            <div className="pushin-layer layer-4">
+            <div className="pushin-layer layer-4" data-pushin-transitions="false" data-pushin-from="0">
               <div className="floor"></div>
             </div>
-            <div className="pushin-layer layer-5">
+            <div className="pushin-layer layer-5" data-pushin-transitions="false" data-pushin-from="0">
               <div className="ceiling"></div>
               <div className="wall">
                 <img src={wall} alt="" />

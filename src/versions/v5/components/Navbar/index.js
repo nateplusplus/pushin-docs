@@ -13,11 +13,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { paths } from '../../routes';
 import Logo from '../../images/pushin-logo.svg';
-import { VERSIONS } from '../../constants';
+import { VERSIONS } from '../../../../constants';
 
 import NavMenu from '../NavMenu';
 
-export default function Navbar({ spacer = true }) {
+export default function Navbar() {
   const location = useLocation();
   const versionPath = location.pathname.match(/v\d+|latest/) ?? 'latest';
 
@@ -104,7 +104,7 @@ export default function Navbar({ spacer = true }) {
         </AppBar>
         <NavMenu collapsed={collapsed} menuToggle={menuToggle} />
       </Box>
-      {spacer && <Box className="navbar-spacer" sx={{ height: '70px' }}/>}
+      <Box className="navbar-spacer" sx={{ height: '70px' }}/>
     </>
   );
 }
