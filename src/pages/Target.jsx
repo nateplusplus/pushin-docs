@@ -6,7 +6,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import { PushIn } from "pushin";
-import 'pushin/dist/pushin.css';
 
 export default function Target() {
   const pushInContainer = useRef();

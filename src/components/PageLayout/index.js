@@ -9,16 +9,19 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 import Navbar from "../Navbar";
 
-export default function PageLayout({id, children}) {
+export default function PageLayout({id, padded = true, spacer = true, children}) {
   id = id ? id : 'pushinPageLayout';
 
   return (
     <Box id={id}>
-      <Navbar />
+      <Navbar spacer={spacer} />
+      { padded && <Box className="navbar-spacer" sx={{ height: '70px' }}/> }
       <Container
         sx={{
-          marginTop: '4rem',
-          marginBottom: '6rem'
+          marginTop: padded ? '4rem' : '0',
+          marginBottom: padded ? '6rem' : '0',
+          maxWidth: padded ? '1200px' : '100% !important',
+          padding: padded ? '0 24px' : '0 !important',
         }}
       >
         {children}

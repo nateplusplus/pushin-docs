@@ -1,9 +1,6 @@
 import React, {useLayoutEffect, useRef} from 'react';
 import { Box, Card, CardContent } from '@mui/material';
-
 import { PushIn } from "pushin";
-import 'pushin/dist/pushin.css';
-
 import PageLayout from "../components/PageLayout";
 
 export default function ResponsiveExample() {

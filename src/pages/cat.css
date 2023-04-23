@@ -1,7 +1,8 @@
 #page-cat-example {
     background-color: #EBE6CD;
 }
-.pushin {
+
+#page-cat-example .pushin {
     height: 5000px;
 }
 
