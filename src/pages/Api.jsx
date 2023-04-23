@@ -119,6 +119,13 @@ export default function Api() {
       <code>string</code>,
       <><p>Automatically begin animating the effect based on where the PushIn container is while scrolling.</p> <p><strong>Options:</strong><ul><li><code>scroll</code> - begin animating immediately when the user begins scrolling.</li><li><code>screen-top</code> - begin animating when the top of the PushIn container aligns with the top of the browser.</li><li><code>screen-bottom</code> - begin animating when the top of the PushIn container aligns with the bottom of the browser.</li></ul></p><p><strong>Default:</strong> <code>'scroll'</code></p></>
     ),
+
+    createData(
+      'length',
+      <code>data-pushin-length</code>,
+      <code>number</code>,
+      <><p>Alias for <code>layerDepth</code>. When an inpoint and outpoint are not provided for a layer, PushIn will use this number to calculate how long the layer should animate when scrolling. If used in combination with 'continuous' mode, it can indicate how long the effect should scroll on the page.</p><p><strong>Default:</strong> <code>1000</code></p></>
+    ),
   ];
 
   const sceneRows = [
